@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/20.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.csc325_firebase_webview_auth.view.AccessFBView">
+
+    <children>
+
+        <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="980.0">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Register" onAction="#regRecord" />
+                        <MenuItem text="Sign In" onAction="#signInRecord" />
+                        <MenuItem text="Clear" onAction="#clearForm" />
+                        <MenuItem text="Close" onAction="#closeApp" />
+                    </items>
+                </Menu>
+                <Menu text="View">
+                    <items>
+                        <MenuItem text="Open Web View" onAction="#switchToSecondary" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="About" onAction="#showAbout" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <HBox layoutX="10.0" layoutY="35.0" prefHeight="600.0" prefWidth="980.0" spacing="12.0">
+            <children>
+
+                <VBox prefHeight="525.0" prefWidth="170.0" spacing="12.0" styleClass="left-panel">
+                    <padding>
+                        <Insets top="12.0" right="12.0" bottom="12.0" left="12.0" />
+                    </padding>
+
+                    <children>
+                        <ImageView fx:id="profileImageView" fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                            <effect>
+                                <InnerShadow>
+                                    <color>
+                                        <Color red="0.2" green="0.2" blue="0.2" />
+                                    </color>
+                                </InnerShadow>
+                            </effect>
+                            <image>
+                                <Image url="@profile_empty.png" />
+                            </image>
+                        </ImageView>
+
+                        <Button text="Upload Picture" onAction="#uploadProfilePicture" prefWidth="140.0" />
+
+                        <Label text="Status" />
+
+                        <TextArea fx:id="outputField" prefHeight="280.0" prefWidth="140.0" wrapText="true" />
+                    </children>
+                </VBox>
+
+                <VBox prefHeight="525.0" prefWidth="520.0" spacing="8.0">
+                    <children>
+                        <TableView fx:id="tableView" prefHeight="525.0" prefWidth="520.0">
+                            <columns>
+
+                                <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Name" />
+                                <TableColumn fx:id="majorColumn" prefWidth="180.0" text="Major" />
+                                <TableColumn fx:id="ageColumn" prefWidth="140.0" text="Age" />
+
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+
+                <VBox prefHeight="525.0" prefWidth="230.0" spacing="10.0" styleClass="form-panel">
+                    <padding>
+                        <Insets top="14.0" right="14.0" bottom="14.0" left="14.0" />
+                    </padding>
+
+                    <children>
+
+                        <Label text="Student Info" />
+
+                        <TextField fx:id="nameField" promptText="Name" styleClass="grey-field" />
+                        <TextField fx:id="majorField" promptText="Major" styleClass="grey-field" />
+                        <TextField fx:id="ageField" promptText="Age" styleClass="grey-field" />
+
+                        <Button fx:id="writeButton" text="Write" onAction="#addRecord" maxWidth="1.7976931348623157E308" />
+                        <Button fx:id="readButton" text="Read" onAction="#readRecord" maxWidth="1.7976931348623157E308" />
+
+
+                        <Button text="Clear Form" onAction="#clearForm" maxWidth="1.7976931348623157E308" />
+                        <Button fx:id="switchroot" text="Open Web View" onAction="#switchToSecondary" maxWidth="1.7976931348623157E308" />
+
+                    </children>
+                </VBox>
+
+            </children>
+        </HBox>
+
+    </children>
+
+
+</AnchorPane>
