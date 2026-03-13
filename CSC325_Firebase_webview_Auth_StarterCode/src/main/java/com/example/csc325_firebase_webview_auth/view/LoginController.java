@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 public class LoginController {
 
-    private static final String FIREBASE_WEB_API_KEY = "AIzaSyCVt8N6X0Vj4HxSZSFTi0sxxXPZ28qwPLA";
+    private static final String FIREBASE_WEB_API_KEY = "";
 
     @FXML
     private TextField emailField;
@@ -127,5 +127,6 @@ public class LoginController {
 
         return "Unknown error";
     }
+
 
 }
